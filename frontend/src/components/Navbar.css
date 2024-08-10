@@ -1,13 +1,7 @@
 
-/* .header{978DF2
-  background-color: #978DF2;
+.header {
+  background-color: #6769B2; 
 }
-Container{
-  background-color: #978DF2;
-}
-.navbar {
-    background-color: #f8f9fa !important;
-  } */
   .header .navbar {
     background-color: #6769B2; 
 }
@@ -30,19 +24,16 @@ Container{
   .nav-link:hover {
     color: #007bff !important;
     background: orange;
+    .btn-ln {
+      background: orange;
+      border: none;
+    }
   }
-  /* .nav-link:active{
-    background: orange;
-  } */
-  /* .nav-link::after{
-    background: orange;
-  } */
+ 
 .navbar-nav {
   margin-left: auto; 
 }
-/* .navbar-nav img{
-  margin-right: ;
-} */
+
 .navbar-buttons .btn {
   margin-left: 10px; 
 }
@@ -57,3 +48,13 @@ Container{
   align-items: center;
 }
 
+nav-link.active {
+  background-color: #007bff;
+  color: #fff !important; 
+  border-radius: 5px;
+  .btn-ln {
+    background: #007bff;
+    border: none;
+  }
+   
+}
