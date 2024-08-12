@@ -37,9 +37,10 @@ class Quiz(models.Model):
     
 class QuizResult(models.Model):
     Quiz = models.ForeignKey(Quiz , on_delete=models.PROTECT)
-    no_of_question = models.PositiveIntegerField(max_length=255)
-    right_answer = models.PositiveSmallIntegerField(max_length=255)
-    wrong_answer = models.PositiveSmallIntegerField(max_length=255)
-    TotalResult = models.PositiveSmallIntegerField(max_length=255)
+    no_of_question = models.PositiveIntegerField()
+    right_answer = models.PositiveSmallIntegerField()
+    wrong_answer = models.PositiveSmallIntegerField()
+    TotalResult = models.PositiveSmallIntegerField()
+
 
 
