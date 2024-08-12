@@ -70,8 +70,8 @@ class Exam(models.Model):
 
 class ExamResult(models.Model):
     exam = models.ForeignKey('Exam' , on_delete=models.PROTECT)
-    no_of_questions = models.PositiveIntegerField(max_length=255)
-    right_answers = models.PositiveSmallIntegerField(max_length=255)
-    wrong_answers = models.PositiveSmallIntegerField(max_length=255)
-    total_result = models.PositiveSmallIntegerField(max_length=255)
+    no_of_questions = models.PositiveIntegerField()
+    right_answers = models.PositiveSmallIntegerField()
+    wrong_answers = models.PositiveSmallIntegerField()
+    total_result = models.PositiveSmallIntegerField()
     result_per_cent = models.DecimalField(max_digits=2 , decimal_places=2)
