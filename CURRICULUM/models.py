@@ -8,8 +8,9 @@ class Course(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     grade = models.FloatField(null=True, blank=True)
-    duration = models.DurationField()
-
+    starting_date = models.DateTimeField()
+    ending_date = models.DateTimeField()
+    
     def __str__(self) -> str:
         return f'{self.name} - {self.price}'
 
@@ -21,7 +22,7 @@ class Lesson(models.Model):
     additional_note = models.FileField(upload_to='notes/', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.title} - Lesson {self.number}: {self.title}"
+        return f"Lesson {self.number}: {self.title}"
 
 class Lab(models.Model):
     title = models.CharField(max_length=100)
