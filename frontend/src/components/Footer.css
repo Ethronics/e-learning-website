@@ -1,0 +1,30 @@
+
+.footer-section {
+    padding: 20px 0;
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .footer-section p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+  span{
+    font-weight: bold;
+  }
+  .black{
+    color: black;
+  }
+  .orange{
+    color: orange;
+  }
+  .blue{
+    color: blue;
+  }
+  .white{
+    color: white;
+  }
+  .about a{
+    text-decoration: none;
+    
+  }
