@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(ftyeoh(^1%osq5xl%5+x%a60jn^748e2&!e&a=b-=f)ddzkoo
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'USER.User'
 
 # Application definition
 
@@ -37,20 +37,34 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'ASSIGNMENT',
     'BLOGPOST',
     'CURRICULUM',
     'EXAM',
     'QUIZ',
-    'USER',
+    'USER.apps.UserConfig',
+
     'debug_toolbar',
+
+    'rest_framework',
+    'rest_framework.authtoken',
     
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
+}
+
 INTERNAL_IPS = [
-    # ...
     "127.0.0.1",
-    # ...
 ]
 
 MIDDLEWARE = [
@@ -136,4 +150,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'USER.User'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'burakdess00@gmail.com'
+EMAIL_HOST_PASSWORD = 'psyv ebud kwmu qeuo'
+DEFAULT_FROM_EMAIL = 'no-reply@gmail.com'
+FRONTEND_URL = 'http://localhost:8000'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+

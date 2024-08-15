@@ -18,8 +18,6 @@ class Assignment(models.Model):
         return f"Assignment {self.number}: {self.title} for {self.course.name}"
 
 
-   
-
 class StudentAssignmentSubmit(models.Model):
    assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE, related_name='student_assignments')
    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='assignments_submitted')

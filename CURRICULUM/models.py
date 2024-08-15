@@ -1,9 +1,10 @@
 from django.db import models
 from USER.models import Student,Instructor
+from django.conf import settings
 
 
 class Course(models.Model):
-    instructor = models.ForeignKey(Instructor , on_delete=models.PROTECT , related_name='course_instructor')
+    instructor = models.ForeignKey(settings.AUTH_USER_MODEL , on_delete=models.PROTECT , related_name='course_instructor')
     name = models.CharField(max_length=100)
     total_lessons = models.IntegerField()
     description = models.TextField()
@@ -66,7 +67,7 @@ class Curriculum(models.Model):
 
 
 class Enrollment(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     curriculum = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
     enrolled_date = models.DateTimeField(auto_now_add=True)
     completed = models.BooleanField(default=False)  

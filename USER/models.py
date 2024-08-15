@@ -6,7 +6,7 @@ class User(AbstractUser):
     class Role(models.TextChoices):
         ADMIN = 'ADMIN', 'Admin'
         STUDENT = 'STUDENT', 'Student'
-        Instructor = 'Instructor', 'Instructor'
+        INSTRUCTOR = 'Instructor', 'Instructor'
     
     base_role = Role.STUDENT
     profile_picture = models.FileField(upload_to='images/profile', blank=True, null=True)
@@ -24,7 +24,7 @@ class User(AbstractUser):
         if self.role == User.Role.ADMIN:
             self.is_staff = True
             self.is_superuser = True
-        elif self.role == User.Role.Instructor:
+        elif self.role == User.Role.INSTRUCTOR:
             self.is_staff = True
             self.is_superuser = False
         super().save(*args, **kwargs)
@@ -48,7 +48,7 @@ class Student(User):
 class InstructorManager(BaseUserManager):
     def get_queryset(self, *args, **kwargs):
         results = super().get_queryset(*args, **kwargs)
-        return results.filter(role=User.Role.Instructor)
+        return results.filter(role=User.Role.INSTRUCTOR)
  
 class Instructor(User):
     class Meta:
