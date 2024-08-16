@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate
 from .serializers import (
     RegisterSerializer, LoginSerializer,
     PasswordResetSerializer, ChangePasswordSerializer, SetNewPasswordSerializer,
-    UserProfileSerializer
+    UserProfileSerializer, InstructorRegistrationSerializer, InstructorProfileUpdateSerializer
 )
 from .models import User
 from ethronics.mail import send_custom_email
@@ -25,6 +25,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework import viewsets, permissions
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 
 
 from django.contrib.auth.tokens import default_token_generator
@@ -59,7 +60,6 @@ class RegisterView(generics.CreateAPIView):
         user = serializer.save()
         token, _ = Token.objects.get_or_create(user=user)
 
-        # Sending a welcome email
         subject = "Welcome to Ethronics"
         template_name = "emails/welcome_email.html"
         context = {
@@ -77,6 +77,29 @@ class RegisterView(generics.CreateAPIView):
         }, status=status.HTTP_201_CREATED)
 
 
+
+class InstructorRegistrationView(APIView):
+    permission_classes = [IsAdminUser]
+    def post(self, request, *args, **kwargs):
+        serializer = InstructorRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+
+            subject = "Welcome to Ethronics"
+            template_name = "emails/welcome_email.html"
+            context = {
+                "username": user.username,
+                "login_url": f"{settings.FRONTEND_URL}/user/login",
+            }
+            recipient_list = [user.email]
+
+            # Send the email
+            send_custom_email(subject, template_name, context, recipient_list)
+            
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class LoginView(generics.GenericAPIView):
     permission_classes = (AllowAny,)
     serializer_class = LoginSerializer
@@ -92,6 +115,20 @@ class LoginView(generics.GenericAPIView):
             }, status=status.HTTP_200_OK)
         return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
     
+class InstructorProfileUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request, *args, **kwargs):
+        user = request.user
+
+        if user.role != User.Role.INSTRUCTOR:
+            return Response({"detail": "Only instructors can update their profile."}, status=status.HTTP_403_FORBIDDEN)
+
+        serializer = InstructorProfileUpdateSerializer(user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ForgetPassword(APIView):

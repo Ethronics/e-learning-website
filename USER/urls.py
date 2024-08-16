@@ -2,7 +2,7 @@ from django.urls import path, include
 
 from .views import ( RegisterView, LoginView, 
         ForgetPassword, SetNewPasswordView, ChangePasswordView,
-        UserProfileView)
+        UserProfileView, InstructorRegistrationView, InstructorProfileUpdateView)
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
@@ -11,5 +11,7 @@ urlpatterns = [
     path('set-new-password/<uidb64>/<token>/', SetNewPasswordView.as_view(), name='set_new_password'),
     path('change-password/', ChangePasswordView.as_view(), name='change_password'),
     path('profile/', UserProfileView.as_view(), name='user_profile'),
+    path('register-instructor/', InstructorRegistrationView.as_view(), name='register-instructor'),
+    path('ins/profile/', InstructorProfileUpdateView.as_view(), name='update-profile'),
 ]
 

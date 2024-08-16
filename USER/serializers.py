@@ -1,4 +1,4 @@
-from .models import User
+from .models import User, Profession
 
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
@@ -50,6 +50,49 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
 
+        return user
+
+
+
+class InstructorRegistrationSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        write_only=True,
+        required=True,
+        validators=[validate_password],
+        style={'input_type': 'password'}
+    )
+    confirm_password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
+    professions = serializers.PrimaryKeyRelatedField(
+        queryset=Profession.objects.all(),
+        many=True,
+        required=False
+    )
+
+    class Meta:
+        model = User
+        fields = [
+            'first_name', 'last_name', 'email', 'username', 'password',
+            'confirm_password', 'profile_picture', 'bio', 'location', 'birth_date', 'professions','role'
+        ]
+
+    def validate(self, data):
+        """
+        Check that the password and confirm_password match.
+        """
+        password = data.get('password')
+        confirm_password = data.get('confirm_password')
+
+        if password != confirm_password:
+            raise serializers.ValidationError({"confirm_password": "Passwords must match."})
+
+        return data
+
+    def create(self, validated_data):
+        validated_data.pop('confirm_password')
+        professions = validated_data.pop('professions', [])
+        validated_data['role'] = User.Role.INSTRUCTOR
+        user = User.objects.create_user(**validated_data)
+        user.professions.set(professions)
         return user
 
 
@@ -142,3 +185,30 @@ class UserProfileSerializer(serializers.ModelSerializer):
         if User.objects.exclude(pk=user.pk).filter(username=value).exists():
             raise serializers.ValidationError("This username is already taken.")
         return value
+
+
+class ProfessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profession
+        fields = ['name']
+
+
+class InstructorProfileUpdateSerializer(serializers.ModelSerializer):
+    
+    email = serializers.ReadOnlyField()
+    location = serializers.ReadOnlyField()
+    birth_date = serializers.ReadOnlyField()
+    professions = ProfessionSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'bio', 'profile_picture', 'email', 'location', 'birth_date', 'professions']
+
+    def update(self, instance, validated_data):
+        
+        instance.username = validated_data.get('username', instance.username)
+        instance.bio = validated_data.get('bio', instance.bio)
+        instance.profile_picture = validated_data.get('profile_picture', instance.profile_picture)
+        instance.save()
+        return instance
+

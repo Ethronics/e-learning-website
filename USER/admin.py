@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import User, Student, Instructor
+from .models import User, Student, Instructor, Profession
 
 class UserAdmin(BaseUserAdmin):
     model = User
@@ -20,12 +20,24 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('username', 'email')
     ordering = ('username',)
 
-class displayUser(BaseUserAdmin):
+class studentAdmin(BaseUserAdmin):
     list_display = ('username', 'first_name', 'last_name', 'email', 'role', 'date_joined')
     search_fields = ('username', 'email')
     ordering = ('username',)
 
+class instructorAdmin(BaseUserAdmin):
+    fieldsets = (
+        (None, {'fields': ('username', 'password')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'email','professions' , 'role')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
+        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+    )
 
+    list_display = ('username', 'first_name', 'last_name', 'email', 'role', 'date_joined')
+    search_fields = ('username', 'email')
+    ordering = ('username',)
+
+admin.site.register(Profession)
 admin.site.register(User, UserAdmin)
-admin.site.register(Student, displayUser)
-admin.site.register(Instructor, displayUser)
+admin.site.register(Student, studentAdmin)
+admin.site.register(Instructor, instructorAdmin)
