@@ -39,6 +39,14 @@ class AdditionalNote(models.Model):
     def __str__(self):
         return f"course material for {self.course}: Part {self.part}"
 
+class StudentLessonProgress(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='lesson_progress', limit_choices_to={'role': 'STUDENT'})
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    completed_at = models.DateTimeField(auto_now_add=True)
+    progress_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+
+    def __str__(self):
+        return f"{self.student.username} - {self.lesson}: {self.progress_percentage}% completed"
 
 
 
