@@ -1,0 +1,108 @@
+.header {
+  background-color: #6769B2; 
+}
+header .navbar {
+  background-color: #6769B2; 
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.cont1{
+  position: relative;
+  height: 100px;
+  width: 245px;
+  
+}
+.img{
+
+ float: left;
+ margin-right: 5px;
+  height: 60px;
+  width: 60px;
+ 
+ 
+}
+.name1{
+ position: relative;
+  float: right;
+  align-items: center;
+  height: 60px;
+  width: 180px;
+  
+}
+
+span{
+  font-weight: bolder;
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.nav-link {
+  color: #cac0c0 !important;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.header .btn-ln {
+  background: #6769B2;
+  border: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline gold;
+  .btn-ln {
+    border: none;
+  }
+}
+
+/* .navbar-nav {
+  margin-left: auto; 
+  
+} */
+
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-buttons .btn {
+  margin-left: 10px; 
+}
+
+.btn {
+  border-radius: 30px;
+  font-size: 18px;
+  background: black;
+}
+
+
+.nav-link.active {
+  text-decoration: underline gold;
+  
+  .btn-ln {
+    text-decoration: underline solid gold;
+    
+    border: none;
+  }
+   
+}
+.custom-nav {
+  margin-left: auto;
+  
+}
+.black{
+  color: black;
+}
+.orange{
+  color: orange;
+}
+.blue{
+  color: blue;
+}
+.white{
+  color: white;
+}
