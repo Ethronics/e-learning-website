@@ -1,0 +1,51 @@
+/* CourseDetail.css */
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+  
+  .course-title-description, .instructor-details {
+    padding: 1rem;
+  }
+  
+  .course-title-description {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .instructor-details img {
+    border: 2px solid #ddd;
+  }
+  
+  .instructor-details .btn-link {
+    font-size: 0.9rem;
+  }
+  
+  .course-content-outline li {
+    margin-bottom: 1rem;
+  }
+  
+  .prerequisites ul {
+    margin-left: 1.5rem;
+  }
+  
+  .reviews {
+    border-top: 1px solid #ddd;
+  }
+  
+  .related-courses ul {
+    margin-left: 1.5rem;
+  }
+  
+  .upcoming-sessions {
+    border-top: 1px solid #ddd;
+  }
+  
+  /* Ensure proper spacing between CourseTitleDescription and InstructorDetails */
+  @media (max-width: 767px) {
+    .course-title-description, .instructor-details {
+      margin-bottom: 1rem;
+    }
+  }
+  
