@@ -1,4 +1,5 @@
 To run the frontend  use node v18.20.4
+
 clone the main repository and navigate to frontend folder.
 
 then open the folder on cmd and 
