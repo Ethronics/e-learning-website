@@ -6,16 +6,16 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import ResetPassword from './pages/auth/ResetPassword';
-import AdminDashboard from './pages/Admin/AdminDashboard1';
-import StudentDashboard from './pages/Student/StudentDashboard';
-import InstructorDashboard from './pages/Instructor/InstructorDashboard1';
+// import AdminDashboard from './pages/Admin/AdminDashboard1';
+// import StudentDashboard from './pages/Student/StudentDashboard';
+// import InstructorDashboard from './pages/Instructor/InstructorDashboard1';
 import AuthProvider from './context/AuthContext';
 // import CourseCatalog from './components/home/CourseCatalog';
 // import CourseDetail from './components/home/CourseDetail';
 import CourseCatalog from './pages/Student/CourseCatalog';
 import CourseDetail from './pages/Student/CourseDetailsPage';
 import CurriculumDetail from './components/student/curriculumcatalog/CurriculumDetail';
-import InstructorProfilePage from './pages/Student/InstructorProfilePage'; 
+// import InstructorProfilePage from './pages/Student/InstructorProfilePage'; 
 import BlogList from './components/home/BlogList';
 import SingleBlog from './components/home/SingleBlog';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,11 +41,11 @@ const Auth = () => {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/course/:id" element={<CourseDetail />} />
           <Route path="/curricula/:id" element={<CurriculumDetail />} />
-          <Route path="/instructors/:id" element={<InstructorProfilePage />} /> 
+          {/* <Route path="/instructors/:id" element={<InstructorProfilePage />} />  */}
       
-          <Route path="/admin/dashboard" element={<PrivateRoute role="admin"><AdminDashboard /></PrivateRoute>} />
+          {/* <Route path="/admin/dashboard" element={<PrivateRoute role="admin"><AdminDashboard /></PrivateRoute>} />
           <Route path="/student/dashboard" element={<PrivateRoute role="student"><StudentDashboard /></PrivateRoute>} />
-          <Route path="/instructor/dashboard" element={<PrivateRoute role="instructor"><InstructorDashboard /></PrivateRoute>} />
+          <Route path="/instructor/dashboard" element={<PrivateRoute role="instructor"><InstructorDashboard /></PrivateRoute>} /> */}
           <Route path="/" element={<Navigate to="/home" />} />
 
           <Route path="*" element={<h2>Page Not Found</h2>} />

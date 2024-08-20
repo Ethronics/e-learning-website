@@ -1,20 +1,46 @@
-// index.js
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client'; // Updated for React 18+
+// // import Admin from './Admin';
+// // import Inst from './Instructor';
+// import Auth from './Auth';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import './index.css'; // Optional: if you have global styles
+
+// // Create the root element
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// // Render the App component into the root element
+// root.render(
+//   <React.StrictMode>
+//     <Auth />
+//   </React.StrictMode>
+// );
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App2 from './App2';
-
-import reportWebVitals from './reportWebVitals';
+import Student from './Auth';
+// import Student from './Admin';
+// import Student from './Instructor';
+// import Student from './student';
+// import Student from './pages/Student/GradesAndCertificatesPage';
+// import Student from './pages/Student/ExamPage';
+// import Student from './pages/Exam';
+// import Student from './pages/Student/CourseContentPage';
+// import Student from './pages/cart';
+// import Student from './pages/Student/CourseCatalog'
+// import Student from './pages/Student/CourseDetailsPage'
+// import Student from './Home';
+import AuthProvider from './context/AuthContext'; // Ensure the path is correct
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App2 />
+    <AuthProvider>
+      <Student />
+    </AuthProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
