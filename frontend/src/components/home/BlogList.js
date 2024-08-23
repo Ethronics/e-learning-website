@@ -1,10 +1,8 @@
-
 import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
-import Navigation from './Navbar';
-import Footer from './Footer';
+import Navigation from '../Common/Navbar';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
@@ -41,12 +39,18 @@ const BlogList = () => {
         <div>
             <Navigation />
             <div className="container mt-5">
-                <h1 className="mb-4">Latest Robotics Blogs</h1>
-                <div className="mb-4">
-                    <Button variant="outline-primary" onClick={() => setFilter('all')}>All</Button>
-                    <Button variant="outline-primary" onClick={() => setFilter('week')}>This Week</Button>
-                    <Button variant="outline-primary" onClick={() => setFilter('month')}>This Month</Button>
-                    <Button variant="outline-primary" onClick={() => setFilter('old')}>Older</Button>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                    <h1 className="mb-0">Latest Robotics Blogs</h1>
+                    <DropdownButton
+                        id="dropdown-filter"
+                        title={`Filter: ${filter.charAt(0).toUpperCase() + filter.slice(1)}`}
+                        variant="outline-primary"
+                    >
+                        <Dropdown.Item onClick={() => setFilter('all')}>All</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setFilter('week')}>This Week</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setFilter('month')}>This Month</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setFilter('old')}>Older</Dropdown.Item>
+                    </DropdownButton>
                 </div>
                 <div className="d-flex flex-column">
                     {filterBlogs(blogs).map(blog => (
@@ -61,10 +65,9 @@ const BlogList = () => {
                     ))}
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
 
 export default BlogList;
-
