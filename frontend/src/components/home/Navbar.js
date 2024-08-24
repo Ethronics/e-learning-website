@@ -36,7 +36,7 @@ function AppNavbar() {
               <Nav.Link as={NavLink} to="/" exact activeClassName="active">
                 <Button className='btn-ln'>Home</Button>
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/curriculum" activeClassName="active">
+              <Nav.Link as={NavLink} to="/curriculum2" activeClassName="active">
                 <Button className='btn-ln'>Curriculums</Button>
               </Nav.Link>
               <Nav.Link as={NavLink} to="/about" activeClassName="active">
