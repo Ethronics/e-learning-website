@@ -33,13 +33,16 @@ import Student from './Auth';
 // import Student from './pages/Student/CourseCatalog'
 // import Student from './pages/Student/CourseDetailsPage'
 // import Student from './Home';
-import AuthProvider from './context/AuthContext'; // Ensure the path is correct
+import AuthProvider from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
+    <CartProvider>
       <Student />
+      </CartProvider>
     </AuthProvider>
   </React.StrictMode>
 );
