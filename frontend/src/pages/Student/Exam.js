@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "react-bootstrap";
+import Navigation from '../../components/student/Common/Navbar';
 
 const ExamPage = () => {
   const [examData, setExamData] = useState(null);
@@ -14,6 +15,32 @@ const ExamPage = () => {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+
+   // Disable text selection and right-click
+   useEffect(() => {
+    const disableTextSelection = () => {
+      document.body.style.userSelect = "none";
+    };
+
+    const enableTextSelection = () => {
+      document.body.style.userSelect = "auto";
+    };
+
+    const disableRightClick = (event) => {
+      event.preventDefault();
+    };
+
+    if (isExamStarted) {
+      disableTextSelection();
+      window.addEventListener("contextmenu", disableRightClick);
+    }
+
+    return () => {
+      enableTextSelection();
+      window.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, [isExamStarted]);
+
 
   // Fetch exam data
   useEffect(() => {
@@ -116,6 +143,8 @@ const ExamPage = () => {
 
   if (isExamSubmitted) {
     return (
+      <div>
+        <Navigation />
       <div className="flex justify-center items-center h-screen">
         <div className="text-center">
           <h2 className="text-3xl font-bold">Exam Submitted Successfully!</h2>
@@ -162,18 +191,22 @@ const ExamPage = () => {
           </Modal.Footer>
         </Modal>
       </div>
+      </div>
     );
   }
 
   return (
     <div className="container-fluid mx-auto p-8 h-screen">
+      <Navigation />
       {!isExamStarted ? (
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-6">{examData.title}</h1>
-          <h2 className="text-4xl font-bold mb-6">Exam Instructions</h2>
+          <h2 className="warning">warning</h2> 
+          <p className="warning">Avoid resizing your screen after starting the exam, or it will be canceled.</p> 
+          <h2 className="text-4xl font-bold mb-6">Exam Guidelines</h2>
           <p className="text-lg mb-8">{examData.instructions}</p>
           <button className="btn btn-primary" onClick={handleStartExam}>
-            Start Exam
+          Begin Exam
           </button>
         </div>
       ) : (
