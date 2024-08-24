@@ -1,0 +1,94 @@
+/* CourseDetail.css */
+  
+  .course-title-description, .instructor-details {
+    padding: 1rem;
+  }
+  
+  .course-title-description {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .instructor-details img {
+    border: 2px solid #ddd;
+  }
+  
+  .instructor-details .btn-link {
+    font-size: 0.9rem;
+  }
+  
+  .course-content-outline li {
+    margin-bottom: 1rem;
+  }
+  
+  .prerequisites ul {
+    margin-left: 1.5rem;
+  }
+  
+  .reviews {
+    border-top: 1px solid #ddd;
+  }
+  
+  .related-courses ul {
+    margin-left: 1.5rem;
+  }
+  
+  .upcoming-sessions {
+    border-top: 1px solid #ddd;
+  }
+  
+  .course-content-outline {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lesson-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lesson-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .lesson-item:hover {
+    background-color: #e9ecef;
+  }
+  
+  .lesson-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .lesson-title {
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .pdf-link {
+    color: #dc3545;
+    font-size: 0.9em;
+    text-decoration: none;
+  }
+  
+  .pdf-link i {
+    margin-right: 5px;
+  }
+  
+  .pdf-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Ensure proper spacing between CourseTitleDescription and InstructorDetails */
+  @media (max-width: 767px) {
+    .course-title-description, .instructor-details {
+      margin-bottom: 1rem;
+    }
+  }
+  
