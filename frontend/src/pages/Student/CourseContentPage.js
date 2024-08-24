@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './cont.css';
-import AppNavbar from '../../components/home/Navbar';
-import Footer from '../../components/home/Footer';
+import Navigation from '../../components/student/Common/Navbar';
+// import Footer from '../../components/home/Footer';
 import LessonNavigation from '../../components/student/CourseContent/LessonNavigation';
 import LessonContentViewer from '../../components/student/CourseContent/LessonContentViewer';
 import DownloadMaterials from '../../components/student/CourseContent/DownloadMaterials';
 import AssignmentSubmission from '../../components/student/CourseContent/AssignmentSubmission';
 import DiscussionSection from '../../components/student/CourseContent/DiscussionSection';
-import InteractiveQuizzes from '../../components/student/CourseContent/InteractiveQuizzes';
+
 import PracticalSessionFeedback from '../../components/student/CourseContent/PracticalSessionFeedback';
 
 const CourseContentPage = () => {
@@ -38,6 +38,7 @@ const CourseContentPage = () => {
   
     return (
       <div className="container mx-auto p-4">
+        <Navigation />
         <h1 className="text-3xl font-bold text-gray-900 mb-6">
           {courseData.courseTitle}
         </h1>
@@ -73,8 +74,6 @@ const CourseContentPage = () => {
             <DownloadMaterials materials={currentLesson.materials} />
             <AssignmentSubmission assignment={currentLesson.assignment} />
             <DiscussionSection comments={currentLesson.discussions} lessonId={currentLesson.id} />
-            <InteractiveQuizzes quizzes={currentLesson.quizzes} />
-          
             <PracticalSessionFeedback feedback={currentLesson.practicalFeedback} />
           </div>
         </div>
