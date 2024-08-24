@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
-import Navigation from '../Common/Navbar';
+import Navigation from './Navbar';
 import axios from 'axios';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 

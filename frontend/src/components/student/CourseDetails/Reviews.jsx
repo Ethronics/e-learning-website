@@ -9,7 +9,6 @@ const Reviews = ({ reviews }) => {
         <div key={index} className="mb-3">
           <p className="font-weight-bold">{review.student}</p>
           <p>{review.comment}</p>
-          <p className="text-warning">Rating: {review.rating} stars</p>
           <p>{review.practicalFeedback}</p>
         </div>
       ))}
