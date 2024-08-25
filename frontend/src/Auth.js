@@ -35,6 +35,7 @@ import ExamPage from './pages/Student/Exam';
  
 import InstructorDashboard from './pages/Instructor/InstructorDashboard1';
 import QuizCreationPage from './pages/Instructor/QuizCreationPage';
+import Coursesi from './pages/Instructor/CourseOverview'
 import CourseDetail1 from './pages/Instructor/CourseDetail';
 import EnrolledStudents from './pages/Instructor/EnrolledStudents';
 import NotificationsAndMessaging from './pages/Instructor/NotificationsAndMessaging';
@@ -47,11 +48,11 @@ import StudentManagement from './pages/Instructor/StudentManagement';
 import QuestionBank from './pages/Instructor/QuestionBank';
 import ExamCreation from './pages/Instructor/ExamCreation';
 import ExamScheduling from './pages/Instructor/ExamScheduling';
-import GradingInterface from './pages/Instructor/GradingInterface';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Auth = () => {
+function Auth(){
   const { loadUserFromStorage } = useContext(AuthContext);
 
   useEffect(() => {
@@ -96,6 +97,7 @@ const Auth = () => {
           
          {/* instructor routes */}
          <Route path="/instdash" element={<InstructorDashboard />} />
+         <Route path="/coursesi" element={<Coursesi />} />
         <Route path="/course-detail/:courseId" element={<CourseDetail1 />} />
         <Route path="/courses/:courseId/students/:studentId/grade" element={<GradeSubmission />} />
         <Route path="/courses/:courseId/students/:studentId" element={<StudentDetail />} />
@@ -104,12 +106,12 @@ const Auth = () => {
         <Route path="/courses/:courseId/students" element={<StudentManagement />} />
         <Route path="/create-quiz" element={<QuizCreationPage />} />
         <Route path="/notifications" element={<NotificationsAndMessaging />} />
-        <Route path="/profile" element={<ProfileAndSettings />} />
+        <Route path="/profilei" element={<ProfileAndSettings />} />
         <Route path="/course-management/:courseId" element={<CourseManagement />} />
         <Route path="/question-bank" element={<QuestionBank />} />
         <Route path="/create-exam" element={<ExamCreation />} />
         <Route path="/schedule-exam" element={<ExamScheduling />} />
-        <Route path="/grading" element={<GradingInterface />} />
+        
 
           <Route path="*" element={<h2>Page Not Found</h2>} />
         </Routes>

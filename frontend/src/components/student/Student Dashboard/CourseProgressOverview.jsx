@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CourseProgressOverview = ({ courses }) => {
   return (
@@ -6,7 +7,12 @@ const CourseProgressOverview = ({ courses }) => {
       <h2 className="text-lg font-semibold mb-4">Course Progress Overview</h2>
       {courses.map((course) => (
         <div key={course.id} className="mb-4">
-          <h3 className="font-semibold">{course.title}</h3>
+          {/* Course Title as a Link */}
+          <h3 className="font-semibold">
+            <Link to={`/course/${course.id}`} className="text-blue-600 hover:underline">
+              {course.title}
+            </Link>
+          </h3>
           <div className="progress">
             <div
               className="progress-bar bg-green-500"

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import Navigation from '../../components/home/Navbar';
 import Footer from '../../components/home/Footer';
-import axios from 'axios';
+// import axios from 'axios';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -11,7 +11,6 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [birthdate, setBirthdate] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
   const [error, setError] = useState('');
   const { register } = useContext(AuthContext);
@@ -26,7 +25,6 @@ const Register = () => {
       formData.append('username', username);
       formData.append('email', email);
       formData.append('password', password);
-      formData.append('birthdate', birthdate);
       if (profilePicture) {
         formData.append('profilePicture', profilePicture);
       }
@@ -37,16 +35,7 @@ const Register = () => {
       setError('Registration failed');
     }
   };
-
-  const handleGoogleRegister = async () => {
-    try {
-      const { data } = await axios.get('/api.json');
-      const user = await register({ email: data.email, firstName: data.firstName, lastName: data.lastName });
-      navigate.push('/student-dashboard');
-    } catch (err) {
-      setError('Google registration failed');
-    }
-  };
+  
 
   return (
     <div>
@@ -107,16 +96,6 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium">Birthdate</label>
-            <input
-              type="date"
-              className="form-input w-full"
-              value={birthdate}
-              onChange={(e) => setBirthdate(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-4">
             <label className="block mb-2 text-sm font-medium">Profile Picture</label>
             <input
               type="file"
@@ -126,7 +105,6 @@ const Register = () => {
           </div>
           <button type="submit" className="btn btn-blue w-full">Register</button>
         </form>
-        <button onClick={handleGoogleRegister} className="btn btn-red w-full mt-4">Register with Google</button>
         <div className="mt-6 text-center">
           <p>Already have an account? <a href="/login" className="text-blue-600">Login</a></p>
         </div>

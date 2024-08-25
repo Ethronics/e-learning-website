@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import Navigation from '../../components/home/Navbar';
 import Footer from '../../components/home/Footer';
-import axios from 'axios';
 
 const Login = () => {
   const [emailOrUsername, setEmailOrUsername] = useState('');
@@ -27,22 +26,7 @@ const Login = () => {
       setError('Invalid credentials');
     }
   };
-
-  const handleGoogleLogin = async () => {
-    try {
-      const { data } = await axios.get('/api.json');
-      const user = await login({ email: data.email });
-      if (user.role === 'student') {
-        navigate.push('/student-dashboard');
-      } else if (user.role === 'instructor') {
-        navigate.push('/instructor-dashboard');
-      } else if (user.role === 'admin') {
-        navigate.push('/admin-dashboard');
-      }
-    } catch (err) {
-      setError('Google login failed');
-    }
-  };
+  
 
   return (
     <div>
@@ -75,7 +59,6 @@ const Login = () => {
           </div>
           <button type="submit" className="btn btn-blue w-full">Login</button>
         </form>
-        <button onClick={handleGoogleLogin} className="btn btn-red w-full mt-4">Login with Google</button>
         <div className="mt-6 text-center">
           <a href="/forgot-password" className="text-blue-600">Forgot password?</a>
         </div>

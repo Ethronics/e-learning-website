@@ -1,53 +1,4 @@
-// import React, { createContext, useState, useEffect } from 'react';
-// import axios from 'axios';
 
-// export const AuthContext = createContext();
-
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const loggedInUser = JSON.parse(localStorage.getItem('user'));
-//     if (loggedInUser) {
-//       setUser(loggedInUser);
-//     }
-//     setLoading(false);
-//   }, []);
-
-//   const login = async (credentials) => {
-//     try {
-//       const { data } = await axios.post('/api/login', credentials);
-//       localStorage.setItem('user', JSON.stringify(data.user));
-//       setUser(data.user);
-//       return data.user;
-//     } catch (error) {
-//       throw new Error('Login failed');
-//     }
-//   };
-
-//   const logout = () => {
-//     localStorage.removeItem('user');
-//     setUser(null);
-//   };
-
-//   const register = async (userInfo) => {
-//     try {
-//       const { data } = await axios.post('/api/register', userInfo);
-//       localStorage.setItem('user', JSON.stringify(data.user));
-//       setUser(data.user);
-//       return data.user;
-//     } catch (error) {
-//       throw new Error('Registration failed');
-//     }
-//   };
-
-//   return (
-//     <AuthContext.Provider value={{ user, login, logout, register, loading }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -106,4 +57,4 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-export default AuthProvider; // This exports AuthProvider as default
+export default AuthProvider; 

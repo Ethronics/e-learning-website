@@ -21,7 +21,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import Student from './Auth';
+import Auth from './Auth';
 // import Student from './Admin';
 // import Student from './Instructor';
 // import Student from './student';
@@ -41,7 +41,7 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
     <CartProvider>
-      <Student />
+      <Auth />
       </CartProvider>
     </AuthProvider>
   </React.StrictMode>
