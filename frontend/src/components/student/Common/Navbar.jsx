@@ -1,17 +1,25 @@
-import React, { useState }   from 'react';
+import React, { useState, useEffect }   from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../../assets/ethlogo-1-137x137.png';
 import user from '../../../assets/user1.png';
+import axios from 'axios';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function AppNavbar() {
-
+  const [student, setStudentData] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+useEffect(() => {
+  // Fetch data from the local JSON file
+  axios.get('/sdas.json')
+    .then(response => setStudentData(response.data.student))
+    .catch(error => console.error(error));
+}, []);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -80,7 +88,7 @@ function AppNavbar() {
           className="text-gray-600 hover:text-gray-800 flex items-center focus:outline-none"
         >
           <img src={user} alt="Profile" className="w-8 h-8 rounded-full" />
-          <span className="ml-2 hidden sm:block">Instructor</span>
+          <span className="ml-2 hidden sm:block">{student ? student.name : 'Loading...'}</span>
         </button>
         {dropdownOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md">

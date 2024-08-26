@@ -214,11 +214,11 @@ const ExamPage = () => {
           {/* Flag and Question List on the Left */}
           <div className="w-1/5 bg-gray-100 p-4 border-r-2">
             <h3 className="text-lg font-semibold mb-4">Questions</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {examData.questions.map((_, index) => (
                 <div
                   key={index}
-                  className={`p-2 border rounded ${
+                  className={`p-2 w-15 h-12 border rounded ${
                     flags[index]
                       ? "bg-green-200"
                       : flags[index] === false
@@ -229,7 +229,7 @@ const ExamPage = () => {
                 >
                   Q{index + 1}
                   <span
-                    className={`ml-2 inline-block w-4 h-4 rounded-full ${
+                    className={`ml-2 inline-block w-3 h-3 rounded-full ${
                       flags[index] ? "bg-red-600" : "bg-gray-300"
                     }`}
                     onClick={() => handleToggleFlag(index)}

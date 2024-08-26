@@ -52,3 +52,13 @@
     border-color: #004085;
   }
   
+  body.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  body.dark {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  

@@ -10,7 +10,7 @@ const CurriculumList = ({ curricula }) => {
           {curricula.map(curriculum => (
             <a
               key={curriculum.id}  
-              href={`/curricula/${curriculum.id}`}
+              href={`/curricula2/${curriculum.id}`}
               className="text-blue-500"
             >
               <div className="bg-white p-6 rounded-lg shadow-lg">

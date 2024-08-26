@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import "./SettingsPage.css";
@@ -10,19 +10,43 @@ const SettingsPage = () => {
     theme: "light",
   });
 
+  // Load settings from localStorage on component mount
+  useEffect(() => {
+    const savedAppearance = JSON.parse(localStorage.getItem("appearance"));
+    if (savedAppearance) {
+      setAppearance(savedAppearance);
+      applyStyles(savedAppearance);
+    }
+  }, []);
+
   const handleInputChange = (e, section) => {
     const { name, value } = e.target;
     if (section === "appearance") {
-      setAppearance({ ...appearance, [name]: value });
-    } 
+      const updatedAppearance = { ...appearance, [name]: value };
+      setAppearance(updatedAppearance);
+      applyStyles(updatedAppearance);
+    }
   };
 
-  
   const handleSaveSettings = () => {
-    // Save settings logic (e.g., save to localStorage or backend)
-    console.log("Settings saved:", {
-      appearance,
-    });
+    // Save settings to localStorage
+    localStorage.setItem("appearance", JSON.stringify(appearance));
+    console.log("Settings saved:", appearance);
+  };
+
+  const applyStyles = ({ backgroundColor, fontSize, theme }) => {
+    // Apply background color and font size to the body element
+    document.body.style.backgroundColor = backgroundColor;
+    document.documentElement.style.fontSize = fontSize;
+
+    // Apply theme class to the body
+    if (theme === "light") {
+      document.body.classList.add("light");
+      document.body.classList.remove("dark");
+    } else {
+      document.body.classList.add("dark");
+      document.body.classList.remove("light");
+    }
   };
 
   return (
@@ -41,7 +65,7 @@ const SettingsPage = () => {
             className="small-input"
           />
 
-          <label>Font Size</label>
+          <label>Font Size (px)</label>
           <input
             type="number"
             name="fontSize"
