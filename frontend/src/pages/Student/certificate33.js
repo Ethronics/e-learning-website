@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import logo from '../../src/assets/ethlogo-1-137x137.png'; // Your company logo
-import Certificatebg from '../../src/assets/Certificate1.png'; // Your certificate background image
+import logo from '../../../src/assets/ethlogo-1-137x137.png'; // Your company logo
+import Certificatebg from '../../../src/assets/Certificate1.png'; // Your certificate background image
 
 const CertificateView = () => {
   const certificateRef = useRef();

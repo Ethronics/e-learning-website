@@ -3,8 +3,8 @@ import React from "react";
 // import img2 from '../../assets/Tinsae.png';
 // import img3 from '../../assets/John.png';
 // import img4 from '../../assets/Habtamu.png';
-import Footer from '../components/home/Footer';
-import Navbar from '../components/home/Navbar';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 const About = () => {
   const instructors = [

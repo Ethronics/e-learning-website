@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Navigation from '../../components/student/Common/Navbar';
+import Footer from '../../components/home/Footer';
 import axios from "axios";
 
 function GradeView() {
@@ -59,25 +61,25 @@ function GradeView() {
   );
 
   return (
+    <div>
+            <Navigation />
     <div className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Your Grades</h1>
 
       {/* Course Category Filter */}
       <div className="mb-6">
         <label className="block mb-2 text-lg font-medium">
-          Select Course Category
+          Select Course Curriculum
         </label>
         <select
           className="w-full p-2 border rounded-lg"
           value={selectedCategory}
           onChange={handleCategoryChange}
         >
-          <option value="All">All Categories</option>
-          <option value="Technology">Technology</option>
-          <option value="Mathematics">Mathematics</option>
-          <option value="Science">Science</option>
-          <option value="Humanities">Humanities</option>
-          <option value="Business">Business</option>
+          <option value="All">All Curriculums</option>
+          <option value="Technology">Full-Stack Development</option>
+          <option value="Mathematics">Data Science and Machine Learning</option>
+          <option value="Science">UX/UI Design</option>
         </select>
       </div>
 
@@ -146,6 +148,8 @@ function GradeView() {
       {selectedCourseId && !student && (
         <p className="text-red-500">No results found for the selected course.</p>
       )}
+    </div>
+    <Footer />
     </div>
   );
 }

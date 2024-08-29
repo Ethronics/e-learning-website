@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AuthContext } from './context/AuthContext';
 import Home from './Home';
@@ -13,6 +13,7 @@ import CourseDetail2 from './components/Gues/CourseDetailsPage';
 import CurriculumDetail2 from './components/Gues/curriculumcatalog/CurriculumDetail';
 import BlogList2 from './components/home/BlogList';
 import SingleBlog2 from './components/home/SingleBlog';
+import About from './components/home/About';
 
 import AuthProvider from './context/AuthContext';
 
@@ -28,6 +29,8 @@ import BlogList from './components/student/blog/BlogList';
 import SingleBlog from './components/student/blog/SingleBlog';
 import ProfilePage from './pages/Student/ProfilePage';
 import ExamPage from './pages/Student/Exam';
+import CertificateView from './pages/Student/certificate33';
+import GradeView from './pages/Student/GradeView';
 
 // Instructor Pages
 import InstructorDashboard from './pages/Instructor/InstructorDashboard1';
@@ -38,7 +41,7 @@ import EnrolledStudents from './pages/Instructor/EnrolledStudents';
 import ProfileAndSettings from './pages/Instructor/ProfileSetting';
 import CourseManagement from './pages/Instructor/ContentEditor';
 import StudentDetail from './pages/Instructor/StudentDetail';
-import GradeSubmission from './pages/Instructor/GradeSubmission';
+import GradeSubmission from './pages/Instructor/GradeSubmision';
 import StudentManagement from './pages/Instructor/StudentManagement';
 import QuestionBank from './pages/Instructor/QuestionBank';
 import ExamCreation from './pages/Instructor/ExamCreation';
@@ -79,6 +82,7 @@ function Auth() {
           <Route path="/curricula2/:id" element={<CurriculumDetail2 />} />
           <Route path="/blogs" element={<BlogList2 />} />
           <Route path="/blog/:blogId" element={<SingleBlog2 />} />
+          <Route path="/about" element={<About />} />
 
           {/* Auth Routes */}
           <Route path="/login" element={<Login />} />
@@ -102,6 +106,8 @@ function Auth() {
               <Route path="/instructors/:id" element={<InstructorProfilePage />} />
               <Route path="/content" element={<CourseContentPage />} />
               <Route path="/exam" element={<ExamPage />} />
+              <Route path="/certificate" element={<CertificateView />} />
+              <Route path="/viewgrade" element={<GradeView />} />
             {/* </>
           )} */}
 
@@ -111,7 +117,7 @@ function Auth() {
               <Route path="/instdash" element={<InstructorDashboard />} />
               <Route path="/coursesi" element={<Coursesi />} />
               <Route path="/course-detail/:courseId" element={<CourseDetail1 />} />
-              <Route path="/courses/:courseId/students/:studentId/grade" element={<GradeSubmission />} />
+              <Route path="/gradeform" element={<GradeSubmission />} />
               <Route path="/courses/:courseId/students/:studentId" element={<StudentDetail />} />
               <Route path="/course-students/:courseId" element={<EnrolledStudents />} />
               <Route path="/courses/:courseId/students" element={<StudentManagement />} />

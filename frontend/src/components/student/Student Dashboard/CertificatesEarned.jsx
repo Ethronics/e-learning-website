@@ -9,7 +9,7 @@ const CertificatesEarned = ({ certificates }) => {
           <h3 className="font-semibold">{certificate.title}</h3>
           <p>Date Earned: {certificate.date}</p>
           <a
-            href={certificate.url}
+            href="/certificate"
             className="btn btn-primary"
             download
           >

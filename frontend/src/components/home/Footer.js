@@ -11,7 +11,7 @@ const Footer = () => {
                     <Col md={4}>
                       <div className='con1'>
                         <div className="about">
-                            <a href="/">
+                            <a href="/about">
                             <div className='img2'>
                                 <img
                                     src={logo}

@@ -83,10 +83,6 @@ const CourseDetailsPage = () => {
             </button>
         </div>
         <Footer />
-
-        {/* Fixed "Enroll Now" Button */}
-        
-
         </div>
       );
     };

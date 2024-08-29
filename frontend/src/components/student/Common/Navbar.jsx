@@ -70,10 +70,7 @@ useEffect(() => {
       <Link to="/curriculum" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Curriculums</Button>
       </Link>
-      <Link to="/schedules" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
-      <Button className='btn-ln'>Schedules</Button>
-      </Link>
-      <Link to="/grades" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
+      <Link to="/viewgrade" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Grades</Button>
       </Link>
       <Link to="/blogs1" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">

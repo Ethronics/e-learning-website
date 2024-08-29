@@ -104,9 +104,9 @@ const StudentDetail = () => {
         </div>
 
         <div className="mt-4">
-          <Link to={`/courses/${courseId}/students/${studentId}/grade`} className="text-blue-500 underline">
+          {/* <Link to={`/courses/${courseId}/students/${studentId}/grade`} className="text-blue-500 underline">
             Submit Grade
-          </Link>
+          </Link> */}
           <br />
           <Link to={`/courses/${courseId}/students/${studentId}/grades`} className="text-blue-500 underline">
             View Grades

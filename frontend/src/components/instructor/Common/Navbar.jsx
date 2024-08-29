@@ -71,7 +71,9 @@ function AppNavbar() {
       <Link to="/question-bank" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Exam Bank</Button>
       </Link>
-     
+      <Link to="/gradeform" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
+      <Button className='btn-ln'>Grade Form</Button>
+          </Link>
       {/* Profile Dropdown */}
       <div className="relative mt-2 sm:mt-0 sm:ml-4">
         <button
