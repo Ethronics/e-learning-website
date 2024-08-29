@@ -11,9 +11,43 @@ footer{
     margin: 0;
     font-size: 0.875rem;
   }
-  span{
-    font-weight: bold;
+
+  .con1{
+ width: 100%;
+ align-items: center;
+ position: relative;
   }
+ 
+  .img2{
+    display: block;
+    width: 200px;
+    margin-left: 100px;
+    align-items: center;
+  }
+  .about{
+    position: relative;
+    width: 200px;
+    align-items: center; 
+  }
+  .name1{
+    position: relative;
+     align-items: center;
+     height: 60px;
+     width: 195px;
+     
+   }
+   
+   span{
+     font-weight: bolder;
+     font-size: 13px;
+     font-weight: 1000;
+   }
+   
+   .eth{
+     font-size: 15px;
+     display: block;
+    align-items: center;
+   }
   .black{
     color: black;
   }

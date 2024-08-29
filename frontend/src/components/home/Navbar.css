@@ -46,8 +46,9 @@ header .navbar {
 }
 .cont1{
   position: relative;
+  /* padding-top: 20px; */
   height: 100px;
-  width: 245px;
+  width: 260px;
   
 }
 .img{
@@ -56,15 +57,14 @@ header .navbar {
  margin-right: 5px;
   height: 60px;
   width: 60px;
- 
- 
 }
+
 .name1{
  position: relative;
   float: right;
   align-items: center;
   height: 60px;
-  width: 180px;
+  width: 195px;
   
 }
 
@@ -74,11 +74,35 @@ span{
   font-weight: 1000;
 }
 
+.eth{
+  font-size: 15px;
+  display: block;
+ align-items: center;
+}
+.black{
+  color: black;
+}
+.orange{
+  color: orange;
+}
+.blue{
+  color: blue;
+}
+.white{
+  color: white;
+}
+
 .nav-link {
   color: #cac0c0 !important;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease;
+}
+
+header .btn {
+  border-radius: 30px;
+  font-size: 18px;
+  background: black;
 }
 
 header .btn-ln {
@@ -112,13 +136,6 @@ nav .btn-ln:hover {
   margin-left: 10px; 
 }
 
-.btn {
-  border-radius: 30px;
-  font-size: 18px;
-  background: black;
-}
-
-
 link.active {
   text-decoration: underline gold;
   
@@ -132,16 +149,4 @@ link.active {
 .custom-nav {
   margin-left: auto;
   
-}
-.black{
-  color: black;
-}
-.orange{
-  color: orange;
-}
-.blue{
-  color: blue;
-}
-.white{
-  color: white;
 }

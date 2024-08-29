@@ -43,8 +43,8 @@ useEffect(() => {
   </div>
   <div className='name1'>
     <h4>
-    <span className="black">ETHRONICS</span>                          
-    <span className="black">- INSTITUTE OF </span>
+    <span className="black eth">ETHRONICS</span>                          
+    <span className="black">INSTITUTE OF </span>
     <span className="orange">ROBOTICS </span>
     <span className="black">& </span>
     <span className="blue">AUTONOMOUS </span>

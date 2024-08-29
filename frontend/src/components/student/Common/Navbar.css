@@ -4,8 +4,9 @@
   }
   .cont1{
     position: relative;
+    padding-top: 20px;
     height: 100px;
-    width: 245px;
+    width: 260px;
     
   }
   .img{
@@ -14,15 +15,14 @@
    margin-right: 5px;
     height: 60px;
     width: 60px;
-   
-   
   }
+
   .name1{
    position: relative;
     float: right;
     align-items: center;
     height: 60px;
-    width: 180px;
+    width: 195px;
     
   }
   
@@ -31,27 +31,25 @@
     font-size: 13px;
     font-weight: 1000;
   }
-  .cont1{
-    position: relative;
-    height: 100px;
-    width: 100%;
-   
-}
-.img{
-   float: left;
-   margin-right: 5px;
-    height: 60px;
-    width: 60px;
-   
-}
-.name1{
-    margin-top: 17px;
-    float: right;
-    align-items: center;
-    height: 60px;
-    width: 300px;
-   
-}
+  
+  .eth{
+    font-size: 15px;
+    display: block;
+    margin-left: 35px;
+  }
+  .black{
+    color: black;
+  }
+  .orange{
+    color: orange;
+  }
+  .blue{
+    color: blue;
+  }
+  .white{
+    color: white;
+  }
+
   .admin-name {
     margin-left: 8px;
   }
@@ -111,21 +109,12 @@
     background: #6769B2;
     border: none;
   }
-  
-  .nav-link:hover {
-    color: #007bff !important;
-    background: 007bff;
-    .btn-ln {
-      background: 007bff;
-      border: none;
-    }
-  }
+
   
   /* .navbar-nav {
     margin-left: auto; 
     
   } */
-  
   
   .navbar-buttons {
     display: flex;
@@ -135,37 +124,7 @@
   .navbar-buttons .btn {
     margin-left: 10px; 
   }
-  
-  .btn {
-    border-radius: 30px;
-    font-size: 18px;
-    background: black;
-  }
-  
-  
-  .nav-link.active {
-    background-color: #007bff;
-    color: #fff !important; 
-    border-radius: 5px;
-    .btn-ln {
-      background: #007bff;
-      border: none;
-    }
-     
-  }
+
   .custom-nav {
     margin-left: auto;
-    
-  }
-  .black{
-    color: black;
-  }
-  .orange{
-    color: orange;
-  }
-  .blue{
-    color: blue;
-  }
-  .white{
-    color: white;
   }

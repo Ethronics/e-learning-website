@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  
 import AppNavbar from '../../components/student/Common/Navbar';
 import CourseProgressOverview from '../../components/student/Student Dashboard/CourseProgressOverview';
-import UpcomingLessons from '../../components/student/Student Dashboard/UpcomingLessonsDeadlines';
+// import UpcomingLessons from '../../components/student/Student Dashboard/UpcomingLessonsDeadlines';
 import RecentActivity from '../../components/student/Student Dashboard/RecentActivity';
 import CertificatesEarned from '../../components/student/Student Dashboard/CertificatesEarned';
 import Notifications from '../../components/student/Student Dashboard/Notifications';
-import PracticalSessionTracker from '../../components/student/Student Dashboard/PracticalSessionTracker';
+// import PracticalSessionTracker from '../../components/student/Student Dashboard/PracticalSessionTracker';
 import QuizPerformanceOverview from '../../components/student/Student Dashboard/QuizPerformanceOverview';
-import PersonalizedLearningPaths from '../../components/student/Student Dashboard/PersonalizedLearningPaths';
+// import PersonalizedLearningPaths from '../../components/student/Student Dashboard/PersonalizedLearningPaths';
 import NotificationModal from '../../components/student/Student Dashboard/NotificationModal';
 import SettingsPage from '../../components/student/Student Dashboard/SettingsPage';
 // import { fetchStudentData } from "../../services/apiService";
@@ -20,6 +20,7 @@ import {
   faCertificate,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
+import user from '../../assets/user1.png';
 
 const StudentDashboard = () => {
   const [studentData, setStudentData] = useState(null);
@@ -78,7 +79,7 @@ const StudentDashboard = () => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
           <img
-            src={studentData.profilePicture}
+            src={user}
             alt="Profile"
             className="w-12 h-12 rounded-full mr-4 cursor-pointer"
             onClick={() => navigate("/profile")} // Navigate to profile page on click
@@ -123,10 +124,8 @@ const StudentDashboard = () => {
       {/* Main Dashboard Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <CourseProgressOverview courses={studentData.courses} />
-        <UpcomingLessons courses={studentData.courses} />
         <RecentActivity activities={studentData.recentActivity} />
-        <PracticalSessionTracker sessions={studentData.practicalSessions} />
-        <PersonalizedLearningPaths paths={studentData.personalizedLearningPaths} />
+        {/* <PersonalizedLearningPaths paths={studentData.personalizedLearningPaths} /> */}
         <div className="bg-white p-8 rounded-lg shadow-md">
         <div className="flex items-center mb-4">
           <FontAwesomeIcon icon={faBell} size="lg" className="mr-2" />

@@ -7,7 +7,7 @@ import prof from '../../../assets/instmen1.png';
 import './Navbar.css';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function AppNavbar() {
 
@@ -57,29 +57,20 @@ function AppNavbar() {
     {/* Main Navigation */}
     <nav className={`sm:flex sm:items-center ${mobileMenuOpen ? "block" : "hidden"}`}>
       {/* Header Links */}
-      <Link to="/admdash" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
+      <Link to="/admindash" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Dashboard</Button>
       </Link>
-      <Link to="/coursesi" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
+      <Link to="/curriculum" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Curriculums</Button>
       </Link>
-      <Link to="/create-exam" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
+      <Link to="/adminusers" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Users</Button>
       </Link>
-      <Link to="/create-quiz" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
+      <Link to="/admin/payments" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Payments</Button>
       </Link>
       <Link to="/blogs" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Blogs</Button>
-      </Link>
-      
-      {/* Notifications Icon */}
-      <Link to="/notification" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
-        <FontAwesomeIcon
-          icon={faBell}
-          size="lg"
-          className="cursor-pointer"
-        />
       </Link>
       
       {/* Profile Dropdown */}

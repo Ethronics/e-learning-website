@@ -35,9 +35,11 @@ const SettingsPage = () => {
   };
 
   const applyStyles = ({ backgroundColor, fontSize, theme }) => {
-    // Apply background color and font size to the body element
-    document.body.style.backgroundColor = backgroundColor;
-    document.documentElement.style.fontSize = fontSize;
+    // Apply background color to the root element to ensure it cascades across the app
+    document.documentElement.style.backgroundColor = backgroundColor;
+
+    // Apply font size to the root element to ensure it cascades across the app
+    document.documentElement.style.fontSize = `${fontSize}px`;
 
     // Apply theme class to the body
     if (theme === "light") {
@@ -69,9 +71,9 @@ const SettingsPage = () => {
           <input
             type="number"
             name="fontSize"
-            min="10"
+            min="16"
             max="24"
-            value={parseInt(appearance.fontSize, 10)}
+            value={parseInt(appearance.fontSize, 16)}
             onChange={(e) => handleInputChange(e, "appearance")}
             className="small-input"
           />

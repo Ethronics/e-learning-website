@@ -1,6 +1,5 @@
 
 import React from 'react';
-import './App.css';
 import AppNavbar from './components/home/Navbar';
 import Hero from './components/home/Hero';
 import Features from './components/home/Features';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import './CourseDetail.css';
 
 const CourseTitleDescription = ({ title, description, tags }) => {
@@ -10,10 +10,8 @@ const CourseTitleDescription = ({ title, description, tags }) => {
 <Card.Body>
   <Card.Title>{title}</Card.Title>
   <Card.Text>{description}</Card.Text>
-  <p><strong>Price:</strong> ${'Not available'}</p>
   <p><strong>Duration:</strong> {'Not available'} hours</p>
-  
-  <Button variant="primary">Enroll Now</Button>
+
 </Card.Body>
 </Card>
     </div>

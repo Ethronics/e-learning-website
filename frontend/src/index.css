@@ -7,16 +7,41 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global styles */
-body.light {
-  background-color: #ffffff;
-  color: #000000;
+/* Global Styles */
+:root {
+  --background-color: #ffffff;
+  --font-size: 16px;
+}
+/* Apply background color and font size globally */
+body {
+  background-color: var(--background-color);
+  font-size: var(--font-size);
+  color: var(--font-color, #000000);
+  transition: background-color 0.3s ease, font-size 0.3s ease;
 }
 
-body.dark {
-  background-color: #333333;
-  color: #ffffff;
+/* Optional: Default styles for common elements */
+h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  font-size: inherit;
+  color: inherit;
 }
+
+/* Light theme styles */
+body.light {
+  --background-color: #ffffff;
+}
+
+/* Dark theme styles */
+body.dark {
+  --background-color: #121212;
+  --font-color: #ffffff;
+}
+
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark a, .dark li, .dark span, .dark div {
+  color: var(--font-color);
+}
+
 
 
 code {
@@ -26,6 +51,7 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .btn {
   border-radius: 30px;
   font-size: 18px;

@@ -5,29 +5,51 @@
   
   .cont1{
     position: relative;
+    padding-top: 20px;
     height: 100px;
-    width: 365px;
-   
-   
-}
-.img{
+    width: 260px;
+    
+  }
+  .img{
+  
    float: left;
    margin-right: 5px;
     height: 60px;
     width: 60px;
-   
-   
-}
-.name1{
-  position: relative;
+  }
+
+  .name1{
+   position: relative;
     float: right;
-    margin-top: 2px;
     align-items: center;
     height: 60px;
-    width: 300px;
+    width: 195px;
+    
+  }
   
-   
-}
+  span{
+    font-weight: bolder;
+    font-size: 13px;
+    font-weight: 1000;
+  }
+  
+  .eth{
+    font-size: 15px;
+    display: block;
+    margin-left: 35px;
+  }
+  .black{
+    color: black;
+  }
+  .orange{
+    color: orange;
+  }
+  .blue{
+    color: blue;
+  }
+  .white{
+    color: white;
+  }
   .admin-name {
     margin-left: 8px;
   }
@@ -35,38 +57,7 @@
   header{
     background-color: #6769B2; 
   }
-
-  .notification-popup{
-    position: absolute;
-    width: 400px;
-    height: 200px;
-    top: 60px; /* Adjust based on your navbar height */
-    right: 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: rgb(13, 185, 113);
-    border-radius: 30px;
-  }
   
-  .settings-popup,
-  .profile-popup {
-    position: absolute;
-    top: 60px; /* Adjust based on your navbar height */
-    right: 20px;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .notification-popup h4,
-  .settings-popup h4,
-  .profile-popup h4 {
-    margin-bottom: 10px;
-  }
   .header {
     width: 100%;
     background-color: rgb(103, 105, 178); 
@@ -91,15 +82,7 @@
     background: #6769B2;
     border: none;
   }
-  
-  .nav-link:hover {
-    color: #007bff !important;
-    background: 007bff;
-    .btn-ln {
-      background: 007bff;
-      border: none;
-    }
-  }
+
   
   /* .navbar-nav {
     margin-left: auto; 
@@ -115,13 +98,6 @@
   .navbar-buttons .btn {
     margin-left: 10px; 
   }
-  
-  .btn {
-    border-radius: 30px;
-    font-size: 18px;
-    background: black;
-  }
-  
   
   .nav-link.active {
     background-color: #007bff;

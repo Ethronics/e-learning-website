@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTachometerAlt, faUsers, faBook, faChartLine, faNewspaper, faFileAlt, faCogs, faClipboardList, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTachometerAlt, faUsers, faBook, faChartLine, faNewspaper, faFileAlt, faCogs, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import './Sidebar.css';
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
@@ -12,19 +12,19 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       </div>
       <ul className="sidebar-list mt-10 space-y-4">
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/admindash" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faTachometerAlt} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>Dashboard</span>
           </Link>
         </li>
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/users" className="flex items-center space-x-2">
+          <Link to="/adminusers" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faUsers} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>User Management</span>
           </Link>
         </li>
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/courses" className="flex items-center space-x-2">
+          <Link to="/coursesapp" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faBook} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>Content Approve</span>
           </Link>
@@ -36,25 +36,25 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/blog" className="flex items-center space-x-2">
+          <Link to="/blog-news" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faNewspaper} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>Post Blogs/News</span>
           </Link>
         </li>
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/exam" className="flex items-center space-x-2">
+          <Link to="/adminexams" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faFileAlt} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>Exam Management</span>
           </Link>
         </li>
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/rbac" className="flex items-center space-x-2">
+          <Link to="/adduser" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faProjectDiagram} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>Add New User</span>
           </Link>
         </li>
         <li className="sidebar-list-item px-4 py-2">
-          <Link to="/curriculum" className="flex items-center space-x-2">
+          <Link to="/admincurriculum" className="flex items-center space-x-2">
             <FontAwesomeIcon icon={faCogs} />
             <span className={`${openSidebarToggle ? 'block' : 'hidden'} transition-all`}>New Curriculum</span>
           </Link>

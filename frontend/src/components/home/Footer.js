@@ -9,22 +9,28 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col md={4}>
+                      <div className='con1'>
                         <div className="about">
                             <a href="/">
+                            <div className='img2'>
                                 <img
                                     src={logo}
                                     alt="E-Learn Logo"
                                     style={{ height: '40px' }} 
                                 />
+                                </div>
+                                <div className='name1'>
                                 <h5>
-                                    <span className="black">ETHRONICS</span>
-                                    <span className="white">- INSTITUTE OF </span>
+                                    <span className="black eth">ETHRONICS</span>
+                                    <span className="white">INSTITUTE OF </span>
                                     <span className="orange">ROBOTICS </span>
                                     <span className="white">& </span>
                                     <span className="blue">AUTONOMOUS </span>
                                     <span className="blue">SYSTEMS</span>
                                 </h5>
+                                </div>
                             </a>
+                        </div>
                         </div>
                     </Col>
                     <Col md={4}>
