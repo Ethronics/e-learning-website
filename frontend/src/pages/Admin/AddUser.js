@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Sidebar from '../../components/admin/Common/Sidebar';
+import Header from '../../components/admin/Common/Navbar';
 import axios from 'axios';
 
 const AddUser = () => {
@@ -49,7 +51,18 @@ const AddUser = () => {
         }
     };
 
+    const [openSidebarToggle, setOpenSidebarToggle] = useState(true);
+
+    const OpenSidebar = () => {
+        setOpenSidebarToggle(!openSidebarToggle);
+    };
+
     return (
+       <div className="flex">
+            <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+            <div className={`flex-1 transition-all duration-300 ease-in-out ${openSidebarToggle ? 'ml-64' : 'ml-20'}`}>
+                <Header OpenSidebar={OpenSidebar} />
+                <main className="p-6">
         <div className="container mx-auto px-6 py-8 max-w-4xl">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
                 Add New Instructor/Admin
@@ -176,6 +189,9 @@ const AddUser = () => {
                 </button>
             </form>
         </div>
+        </main>
+        </div>
+    </div>
     );
 };
 

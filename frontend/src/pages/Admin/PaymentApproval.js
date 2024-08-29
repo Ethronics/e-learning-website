@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import Sidebar from '../../components/admin/Common/Sidebar';
+import Header from '../../components/admin/Common/Navbar';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -9,6 +11,12 @@ const PaymentApproval = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(true);
+
+  const OpenSidebar = () => {
+      setOpenSidebarToggle(!openSidebarToggle);
+  };
 
   useEffect(() => {
     axios.get('/pay.json')
@@ -42,6 +50,11 @@ const PaymentApproval = () => {
   if (!payment) return <div className="text-red-500">No payment details available</div>;
 
   return (
+     <div className="flex">
+          <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+          <div className={`flex-1 transition-all duration-300 ease-in-out ${openSidebarToggle ? 'ml-64' : 'ml-20'}`}>
+              <Header OpenSidebar={OpenSidebar} />
+              <main className="p-6">
     <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
       <button
         className="bg-gray-500 text-white px-4 py-2 rounded-md mb-4"
@@ -89,6 +102,9 @@ const PaymentApproval = () => {
           </button>
         </div>
       </div>
+      </main>
+        </div>
+    </div>
     );
   };
   

@@ -45,8 +45,8 @@ import ExamCreation from './pages/Instructor/ExamCreation';
 import ExamScheduling from './pages/Instructor/ExamScheduling';
 
 // Admin Pages
-import Sidebar from './components/admin/Common/Sidebar';
-import Header from './components/admin/Common/Navbar';
+// import Sidebar from './components/admin/Common/Sidebar';
+// import Header from './components/admin/Common/Navbar';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import UserManagement from './pages/Admin/UserManagementPage';
 import CourseApproval from './pages/Admin/CourseApprovalPage';
@@ -66,11 +66,6 @@ function Auth() {
     loadUserFromStorage();
   }, [loadUserFromStorage]);
 
-  const [openSidebarToggle, setOpenSidebarToggle] = useState(true);
-
-  const OpenSidebar = () => {
-    setOpenSidebarToggle(!openSidebarToggle);
-  };
 
   return (
     <Router>
@@ -93,8 +88,8 @@ function Auth() {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
 
           {/* Student Routes */}
-          {user?.role === 'student' && (
-            <>
+          {/* {user?.role === 'student' && (
+            <> */}
               <Route path="/stdash" element={<StudentDashboard />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/blogs1" element={<BlogList />} />
@@ -107,12 +102,12 @@ function Auth() {
               <Route path="/instructors/:id" element={<InstructorProfilePage />} />
               <Route path="/content" element={<CourseContentPage />} />
               <Route path="/exam" element={<ExamPage />} />
-            </>
-          )}
+            {/* </>
+          )} */}
 
           {/* Instructor Routes */}
-          {user?.role === 'instructor' && (
-            <>
+          {/* {user?.role === 'instructor' && (
+            <> */}
               <Route path="/instdash" element={<InstructorDashboard />} />
               <Route path="/coursesi" element={<Coursesi />} />
               <Route path="/course-detail/:courseId" element={<CourseDetail1 />} />
@@ -126,19 +121,12 @@ function Auth() {
               <Route path="/question-bank" element={<QuestionBank />} />
               <Route path="/create-exam" element={<ExamCreation />} />
               <Route path="/schedule-exam" element={<ExamScheduling />} />
-            </>
-          )}
+            {/* </>
+          )} */}
 
           {/* Admin Routes */}
-          {user?.role === 'admin' && (
-            <div className="flex">
-              {/* Sidebar */}
-              <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
-              {/* Main Content */}
-              <div className={`flex-1 transition-all duration-300 ease-in-out ${openSidebarToggle ? 'ml-64' : 'ml-20'}`}>
-                <Header OpenSidebar={OpenSidebar} />
-                <main className="p-6">
-                  <Routes>
+          {/* {user?.role === 'admin' && (
+            <> */}
                     <Route path="/admindash" element={<AdminDashboard />} />
                     <Route path="/adminusers" element={<UserManagement />} />
                     <Route path="/coursesapp" element={<CourseApproval />} />
@@ -153,11 +141,8 @@ function Auth() {
                     />
                     <Route path="/blog-news" element={<BlogNewsManagement />} />
                     <Route path="/adduser" element={<RBACPage />} />
-                  </Routes>
-                </main>
-              </div>
-            </div>
-          )}
+                 {/* </>
+          )} */}
 
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="*" element={<h2>Page Not Found</h2>} />

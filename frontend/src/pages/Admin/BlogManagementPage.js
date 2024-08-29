@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
+import Sidebar from '../../components/admin/Common/Sidebar';
+import Header from '../../components/admin/Common/Navbar';
 import PostCreationAndEditing from '../../components/admin/Blog/PostCreationAndEditing';
 import PublishingTools from '../../components/admin/Blog/PublishingTools';
 import CommentModeration from '../../components/admin/Blog/CommentModeration';
@@ -51,7 +53,18 @@ const BlogManagementPage = () => {
     };
    
 
+    const [openSidebarToggle, setOpenSidebarToggle] = useState(true);
+
+    const OpenSidebar = () => {
+        setOpenSidebarToggle(!openSidebarToggle);
+    };
+
     return (
+       <div className="flex">
+            <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+            <div className={`flex-1 transition-all duration-300 ease-in-out ${openSidebarToggle ? 'ml-64' : 'ml-20'}`}>
+                <Header OpenSidebar={OpenSidebar} />
+                <main className="p-6">
         <div className="p-8 bg-gray-100 min-h-screen">
             <h1 className="text-3xl font-bold mb-8 text-gray-800">Blog Management</h1>
             
@@ -93,6 +106,9 @@ const BlogManagementPage = () => {
                 )}
             </div>
         </div>
+        </main>
+        </div>
+    </div>
     );
 };
 

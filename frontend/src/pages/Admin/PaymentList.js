@@ -1,12 +1,19 @@
 
 // src/components/PaymentList.jsx
 import React, { useState, useEffect } from 'react';
+import Sidebar from '../../components/admin/Common/Sidebar';
+import Header from '../../components/admin/Common/Navbar';
 import axios from 'axios';
 
 const PaymentList = ({ onViewDetails }) => {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(true);
+
+  const OpenSidebar = () => {
+      setOpenSidebarToggle(!openSidebarToggle);
+  };
 
   useEffect(() => {
     axios.get('/pay.json')
@@ -26,7 +33,12 @@ const PaymentList = ({ onViewDetails }) => {
   if (error) return <div>{error}</div>;
   if (pendingPayments.length === 0) return <div>No pending payments</div>;
 
-  return (
+    return (
+       <div className="flex">
+            <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+            <div className={`flex-1 transition-all duration-300 ease-in-out ${openSidebarToggle ? 'ml-64' : 'ml-20'}`}>
+                <Header OpenSidebar={OpenSidebar} />
+                <main className="p-6">
     <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-4">Pending Payments</h1>
       <div className="overflow-x-auto">
@@ -58,6 +70,9 @@ const PaymentList = ({ onViewDetails }) => {
           </tbody>
         </table>
       </div>
+    </div>
+    </main>
+        </div>
     </div>
   );
 };

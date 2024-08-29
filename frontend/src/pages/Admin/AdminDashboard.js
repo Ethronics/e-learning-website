@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Sidebar from '../../components/admin/Common/Sidebar';
+import Header from '../../components/admin/Common/Navbar';
 
 function AdminDashboard() {
+    const [openSidebarToggle, setOpenSidebarToggle] = useState(true);
+
+    const OpenSidebar = () => {
+        setOpenSidebarToggle(!openSidebarToggle);
+    };
+
     return (
-        <div className="p-6">
+       <div className="flex">
+            <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+            <div className={`flex-1 transition-all duration-300 ease-in-out ${openSidebarToggle ? 'ml-64' : 'ml-20'}`}>
+                <Header OpenSidebar={OpenSidebar} />
+                <main className="p-6">
             {/* Admin Profile Section */}
             <div className="flex items-center mb-8">
                 <img
@@ -46,7 +58,9 @@ function AdminDashboard() {
                     <p className="text-sm text-gray-500">Manage exams and assessments</p>
                 </div>
             </div>
+            </main>
         </div>
+    </div>
     );
 }
 
