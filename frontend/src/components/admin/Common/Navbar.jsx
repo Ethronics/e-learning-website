@@ -69,10 +69,6 @@ function AppNavbar() {
       <Link to="/admin/payments" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Payments</Button>
       </Link>
-      <Link to="/blogs" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
-      <Button className='btn-ln'>Blogs</Button>
-      </Link>
-      
       {/* Profile Dropdown */}
       <div className="relative mt-2 sm:mt-0 sm:ml-4">
         <button
@@ -85,7 +81,7 @@ function AppNavbar() {
         {dropdownOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md">
             <Link
-              to="/profilei"
+              to="/adprofile"
               className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
             >
               Profile

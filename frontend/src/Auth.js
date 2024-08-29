@@ -59,6 +59,7 @@ import RBACPage from './pages/Admin/AddUser';
 import CurriculumManagementPage from './pages/Admin/CurriculumManagementPage';
 import PaymentList from './pages/Admin/PaymentList';
 import PaymentManagement from './pages/Admin/PaymentApproval';
+import AdminProfile from './pages/Admin/AdminProfile';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -147,6 +148,7 @@ function Auth() {
                     />
                     <Route path="/blog-news" element={<BlogNewsManagement />} />
                     <Route path="/adduser" element={<RBACPage />} />
+                    <Route path="/adprofile" element={<AdminProfile />} />
                  {/* </>
           )} */}
 
