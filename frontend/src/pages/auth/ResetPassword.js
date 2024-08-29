@@ -24,7 +24,7 @@ const ResetPassword = () => {
       setMessage(data.message);
       setError('');
       setTimeout(() => {
-        navigate.push('/login');
+        navigate('/login');
       }, 2000);
     } catch (err) {
       setError('Failed to reset password');

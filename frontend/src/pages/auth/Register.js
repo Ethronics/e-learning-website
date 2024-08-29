@@ -30,7 +30,7 @@ const Register = () => {
       }
 
       const user = await register(formData);
-      navigate.push('/student-dashboard');
+      navigate('/student-dashboard');
     } catch (err) {
       setError('Registration failed');
     }

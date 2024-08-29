@@ -8,7 +8,7 @@ const Logout = () => {
 
   const handleLogout = () => {
     logout();
-    navigate.push('/login');
+    navigate('/login');
   };
 
   return (

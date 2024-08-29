@@ -16,11 +16,11 @@ const Login = () => {
     try {
       const user = await login({ emailOrUsername, password });
       if (user.role === 'student') {
-        navigate.push('/student-dashboard');
+        navigate('/student-dashboard');
       } else if (user.role === 'instructor') {
-        navigate.push('/instructor-dashboard');
+        navigate('/instructor-dashboard');
       } else if (user.role === 'admin') {
-        navigate.push('/admin-dashboard');
+        navigate('/admin-dashboard');
       }
     } catch (err) {
       setError('Invalid credentials');
