@@ -9,7 +9,7 @@ import CourseApprovalPage from './pages/Admin/CourseApprovalPage';
 import ExamManagementPage from './pages/Admin/ExamManagementPage';
  
 import BlogManagementPage from './pages/Admin/BlogManagementPage';
-import RBACPage from './pages/Admin/AddUser';
+import AddUserPage from './pages/Admin/AddUser';
 // import NotificationManagementPage from './pages/Admin/NotificationManagementPage';
 import CurriculumManagementPage from './pages/Admin/CurriculumManagementPage';
 import PaymentList from './pages/Admin/PaymentList';
@@ -45,7 +45,7 @@ function Admin() {
                       }} />}
                     />
                     <Route path="/blog-news" element={<BlogManagementPage />} />
-                    <Route path="/adduser" element={<RBACPage />} />
+                    <Route path="/adduser" element={<AddUserPage />} />
                   </Routes>
           </main>
         </div>

@@ -15,7 +15,6 @@ import SettingsPage from '../../components/student/Student Dashboard/SettingsPag
 // import { fetchStudentData } from "../../services/apiService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBell,
   faCog,
   faCertificate,
   faChartLine,
@@ -88,12 +87,6 @@ const StudentDashboard = () => {
         </div>
         <div className="flex space-x-4">
           <FontAwesomeIcon
-            icon={faBell}
-            size="lg"
-            onClick={() => toggleContent("notifications")}
-            className="cursor-pointer"
-          />
-          <FontAwesomeIcon
             icon={faCertificate}
             size="lg"
             onClick={() => toggleContent("certificates")}
@@ -128,7 +121,6 @@ const StudentDashboard = () => {
         {/* <PersonalizedLearningPaths paths={studentData.personalizedLearningPaths} /> */}
         <div className="bg-white p-8 rounded-lg shadow-md">
         <div className="flex items-center mb-4">
-          <FontAwesomeIcon icon={faBell} size="lg" className="mr-2" />
           <h2 className="text-lg font-semibold">New Exam Available</h2>
         </div>
         <p>A new exam has been posted. Would you like to take it now?</p>

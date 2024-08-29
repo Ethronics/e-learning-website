@@ -6,7 +6,7 @@ import prof from '../../../assets/instmen1.png';
 import './Navbar.css';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function AppNavbar() {
 
@@ -71,16 +71,7 @@ function AppNavbar() {
       <Link to="/question-bank" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
       <Button className='btn-ln'>Exam Bank</Button>
       </Link>
-      
-      {/* Notifications Icon */}
-      <Link to="/notifications" className="block mt-2 sm:mt-0 sm:ml-4 text-gray-600 hover:text-gray-800">
-        <FontAwesomeIcon
-          icon={faBell}
-          size="lg"
-          className="cursor-pointer"
-        />
-      </Link>
-      
+     
       {/* Profile Dropdown */}
       <div className="relative mt-2 sm:mt-0 sm:ml-4">
         <button
