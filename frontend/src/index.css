@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Styles */
+:root {
+  --background-color: #ffffff;
+  --font-size: 16px;
+}
+/* Apply background color and font size globally */
+body {
+  background-color: var(--background-color);
+  font-size: var(--font-size);
+  color: var(--font-color, #000000);
+  transition: background-color 0.3s ease, font-size 0.3s ease;
+}
+
+/* Optional: Default styles for common elements */
+h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Light theme styles */
+body.light {
+  --background-color: #ffffff;
+}
+
+/* Dark theme styles */
+body.dark {
+  --background-color: #121212;
+  --font-color: #ffffff;
+}
+
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark a, .dark li, .dark span, .dark div {
+  color: var(--font-color);
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  border-radius: 30px;
+  font-size: 18px;
+  background-color: #6769B2;
+}
+.btn-blue {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #0056b3;
+}
+
+.btn-red {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: #c82333;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #6769B2;
+}
+
+.warning{
+  color: red;
+}

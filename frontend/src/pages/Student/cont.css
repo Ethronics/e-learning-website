@@ -1,0 +1,23 @@
+
+.progress-bar {
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+    height: 8px;
+  }
+  
+  .progress-bar-fill {
+    background-color: #3b82f6;
+    height: 8px;
+    border-radius: 9999px;
+  }
+  
+  /* Buttons */
+  button:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #2563eb;
+  }
+  
